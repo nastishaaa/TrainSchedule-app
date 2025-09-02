@@ -1,0 +1,71 @@
+.homeContainer {
+    min-height: 100vh;
+    padding: 34px;
+    color: #fff;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.card {
+    background: linear-gradient(145deg, #0d1b2a, #1b263b);
+    color: #fff;
+    text-decoration: none;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 102, 204, 0.4);
+}
+
+.card h2 {
+    margin-bottom: 0.5rem;
+    color: #4da6ff;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: #cfd8e3;
+}
+
+.recent {
+    margin-top: 2rem;
+}
+
+.recent h2 {
+    margin-bottom: 1rem;
+    color: #4da6ff;
+}
+
+.recent ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recent li {
+    margin: 0.5rem 0;
+}
+
+.recent a {
+    color: #66ccff;
+    text-decoration: none;
+}
+
+.recent a:hover {
+    text-decoration: underline;
+}

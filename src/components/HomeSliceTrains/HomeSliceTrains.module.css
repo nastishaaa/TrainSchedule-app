@@ -1,0 +1,70 @@
+.sliceTrainsContainer {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #0d1b2a, #1e2a3a);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    color: #e0e1dd;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sliceTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #00b4d8;
+    margin-bottom: 12px;
+}
+
+.trainMiniCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: #1e2a3a;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.trainMiniCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.trainInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.trainNumber {
+    font-weight: 700;
+    color: #00b4d8;
+}
+
+.trainName {
+    font-size: 0.95rem;
+    color: #90e0ef;
+}
+
+.trainStations {
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+.departureTime {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: #a0c4ff;
+}
+
+@media (max-width: 480px) {
+    .trainMiniCard {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+}

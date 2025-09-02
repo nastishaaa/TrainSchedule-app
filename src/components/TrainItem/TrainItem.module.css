@@ -1,0 +1,106 @@
+.trainCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+    margin: 12px 0;
+    background: linear-gradient(135deg, #0d1b2a, #1e2a3a);
+    color: #e0e1dd;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 600px;
+}
+
+.trainCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.trainHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    /* для маленьких екранів */
+    margin-bottom: 12px;
+}
+
+.trainNumber {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #00b4d8;
+}
+
+.trainName {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #90e0ef;
+    margin-top: 4px;
+}
+
+.trainStations {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.station {
+    font-weight: 500;
+}
+
+.stationArrow {
+    margin: 0 8px;
+    font-weight: 700;
+    color: #00b4d8;
+}
+
+.trainTimes {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.time {
+    font-family: monospace;
+    color: #ffffff;
+}
+
+.trainDetails {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #a0c4ff;
+    flex-wrap: wrap;
+}
+
+.detail {
+    margin-right: 16px;
+    margin-top: 4px;
+}
+
+@media (max-width: 480px) {
+    .trainCard {
+        padding: 12px;
+        margin: 8px 0;
+    }
+
+    .trainHeader,
+    .trainStations,
+    .trainTimes,
+    .trainDetails {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .stationArrow {
+        margin: 4px 0;
+    }
+
+    .detail {
+        margin-right: 0;
+    }
+}

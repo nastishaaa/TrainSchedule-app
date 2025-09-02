@@ -1,0 +1,17 @@
+body{
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #0d1b2a, #1b263b, #415a77);
+    color: #e0e1dd;
+    font-family: "Poppins", sans-serif;
+
+}
+
+a{
+    font-style: unset;
+    font-family: "Poppins", sans-serif;
+}
+
+button{
+    color: inherit;
+    border: none;
+}

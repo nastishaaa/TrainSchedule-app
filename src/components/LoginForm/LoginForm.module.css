@@ -1,0 +1,91 @@
+.formContainer {
+    max-width: 400px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: rgba(15, 23, 42, 0.85);
+    border-radius: 2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(6px);
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #cbd5e1;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.label {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.field {
+    width: 360px;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    border: 1px solid #64748b;
+    background-color: rgba(203, 213, 225, 0.05);
+    color: #e2e8f0;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.field:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.errorMess {
+    font-size: 0.8rem;
+    color: #f87171;
+    margin-top: 0.25rem;
+}
+
+.loginBtn {
+    padding: 0.75rem 1rem;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    color: #f1f5f9;
+    font-weight: 600;
+    border-radius: 1.5rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 240px;
+}
+
+.loginBtn:hover {
+    background: linear-gradient(90deg, #60a5fa, #3b82f6);
+    transform: scale(1.05);
+}
+
+
+.containerRegisterLink {
+    margin-top: 1.5rem;
+    text-align: center;
+    color: #cbd5e1;
+    font-size: 0.95rem;
+}
+
+.link {
+    color: #3b82f6;
+    font-weight: 500;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.link:hover {
+    color: #60a5fa;
+    
+}
