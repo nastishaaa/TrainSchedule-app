@@ -34,7 +34,9 @@ export const buyTiket = createAsyncThunk(
         const token = state.auth.token;
         
         try {
-            await axios.delete(`https://trainschedule-app-server.onrender.com/trains/${id}`, {
+            await axios.patch(`https://trainschedule-app-server.onrender.com/trains/buy/${id}`,
+                {},
+                {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

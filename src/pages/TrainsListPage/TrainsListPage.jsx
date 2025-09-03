@@ -27,31 +27,31 @@ export default function TrainsListPage() {
         <div className={s.pageContainer}>
             <h1 className={s.pageTitle}>Trains List</h1>
 
-            <div style={{ marginBottom: "20px" }}>
-        <input
-          type="text"
-          name="departure"
-          placeholder="Departure station"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="arrival"
-          placeholder="Arrival station"
-          onChange={handleChange}
-        />
-        <input
-          type="number"
-          name="minSeats"
-          placeholder="Min seats"
-          onChange={handleChange}
-        />
-        <input
-          type="number"
-          name="maxPrice"
-          placeholder="Max price"
-          onChange={handleChange}
-        />
+            <div className={s.searchContainer} style={{ marginBottom: "20px" }}>
+                <input
+                    type="text"
+                    name="departure"
+                    placeholder="Departure station"
+                    onChange={handleChange}
+                />
+                <input
+                    type="text"
+                    name="arrival"
+                    placeholder="Arrival station"
+                    onChange={handleChange}
+                />
+                <input
+                    type="number"
+                    name="minSeats"
+                    placeholder="Min seats"
+                    onChange={handleChange}
+                />
+                <input
+                    type="number"
+                    name="maxPrice"
+                    placeholder="Max price"
+                    onChange={handleChange}
+                />
             </div>
             
             {!isLoading ? (
@@ -71,5 +71,4 @@ export default function TrainsListPage() {
             )}
         </div>
     );
-
 }
