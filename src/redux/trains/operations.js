@@ -26,3 +26,25 @@ export const getTrainById = createAsyncThunk(
         }
     }
 );
+
+export const buyTiket = createAsyncThunk(
+    'trains/buyTiket',
+    async (id, thunkAPI) => {
+        const state = await thunkAPI.getState();
+        const token = state.auth.token;
+        
+        try {
+            await axios.delete(`https://trainschedule-app-server.onrender.com/trains/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+
+            const res = await axios.get(`https://trainschedule-app-server.onrender.com/trains/${id}`);
+
+            return res.data.data;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.message);
+        }
+    }
+)

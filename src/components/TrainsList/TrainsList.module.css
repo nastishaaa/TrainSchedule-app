@@ -1,0 +1,29 @@
+.deleteBtn {
+    background: linear-gradient(135deg, #0d1b2a, #1b263b);
+    color: #00b4d8;
+    border: 2px solid #00b4d8;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    height: 44px;
+}
+
+.deleteBtn:hover, .deleteBtn:focus {
+    background: linear-gradient(135deg, #000000, #0d1b2a);
+    color: #ff6b6b;
+    border-color: #ff6b6b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.boughtTiketsItem{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}

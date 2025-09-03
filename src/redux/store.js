@@ -10,9 +10,14 @@ const authPersistConfig = {
   whitelist: ['user', 'token', 'isLoggedIn'],
 };
 
+const trainsPersistConfig = {
+  key: 'trains', 
+  storage, 
+  whitelist: ['boughtTikets'],
+}
 const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
-  trains: trainsReducer,
+  trains: persistReducer(trainsPersistConfig, trainsReducer),
 });
 
 export const store = configureStore({

@@ -1,31 +1,39 @@
 import { useParams } from 'react-router-dom';
-import { getTrainById } from '../../redux/trains/operations';
+import { buyTiket, getTrainById } from '../../redux/trains/operations';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentTrain } from '../../redux/trains/selectors';
+import { selectCurrentTrain, selectBoughtTikets } from '../../redux/trains/selectors';
 import s from './TrainDetailsPage.module.css';
 import { useEffect, useState } from 'react';
 import { formatDuration } from '../../utils/formatDuration';
+import toast from 'react-hot-toast';
 
 export default function TrainDetailsPage() {
     const { id } = useParams();
-    const dispatch = useDispatch()
-    const train = useSelector(selectCurrentTrain);
-    const [ticketBought, setTicketBought] = useState(false);
+    const dispatch = useDispatch();
 
+    const train = useSelector(selectCurrentTrain);
+    const bought = useSelector(selectBoughtTikets);
+    const isBought = bought.some(t => t.id === train.id);
+
+    const [ticketBought, setTicketBought] = useState(isBought);
     
     useEffect(() => {
         if (id) {
             dispatch(getTrainById(id));
         }
     }, [dispatch, id]);
-    
 
     if (!train) return <p className={s.notFound}>Train not found</p>;
 
-    const handleBuyTicket = () => {
-        setTicketBought(true);
-        alert(`You bought a ticket for ${train.name}! 🎫`);
-    };
+    const handleBuyTicket = (id) => {
+        try {
+            setTicketBought(true);
+            dispatch(buyTiket(id));
+            toast.success(`You bought a ticket for ${train.name}! 🎫`);
+        } catch {
+            toast.error('Please, Authorize first!')
+        }
+       };
 
     return (
         <div className={s.pageWrapper}>
@@ -58,7 +66,7 @@ export default function TrainDetailsPage() {
                             Ticket Bought ✅
                         </button>
                     ) : (
-                        <button className={s.buyBtn} onClick={handleBuyTicket}>
+                        <button className={s.buyBtn} onClick={() => handleBuyTicket(train.id)}>
                             Buy Ticket 🎫
                         </button>
                     )}

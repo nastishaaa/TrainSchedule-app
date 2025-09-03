@@ -8,7 +8,7 @@ export default function HomeCards() {
     const isLoggedIn = useSelector(selectIsLoggedIn);
 
     return (
-        <div className={s.homeContainer}>
+        <div className={s.homeContainerWelcome}>
             <h1 className={s.title}>Welcome to Train Schedule</h1>
 
             <div className={s.cards}>

@@ -54,6 +54,13 @@
     border-color: #ff6b6b;
 }
 
+.tiketsList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 @media (max-width: 480px) {
     .profileContainer {
         padding: 20px;

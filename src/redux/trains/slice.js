@@ -1,8 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getTrainById, getTrains } from "./operations";
+import { buyTiket, getTrainById, getTrains } from "./operations";
 
 const initialState = {
     trains: [],
+    boughtTikets: [],
+    filters: {
+        departure: '',
+        arrival: '',
+        minSeats: 0,
+        maxPrice: null,
+    },
     currentTrain: null,
     isLoading: false,
     isError: false,
@@ -11,7 +18,17 @@ const initialState = {
 const trainsSlice = createSlice({
     name: 'trains',
     initialState,
-    reducers: {},
+    reducers: {
+        addBoughtTicket: (state, action) => {
+            state.boughtTikets.push(action.payload);
+        },
+        removeBoughtTicket: (state, action) => {
+            state.boughtTikets = state.boughtTikets.filter(t => t.id !== action.payload);
+        },
+        setFilters: (state, action) => {
+            state.filters = { ...state.filters, ...action.payload };
+    }
+    },
     extraReducers: builder => {
         builder
             .addCase(getTrains.pending, state => {
@@ -40,7 +57,16 @@ const trainsSlice = createSlice({
                 state.isError = true;
                 state.isLoading = false;
             })
+            .addCase(buyTiket.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(buyTiket.fulfilled, (state, action) => {
+                state.boughtTikets.push(action.payload);
+                state.isLoading = false;
+            })
     }
 });
+
+export const { addBoughtTicket, removeBoughtTicket, setFilters } = trainsSlice.actions;
 
 export default trainsSlice.reducer;
