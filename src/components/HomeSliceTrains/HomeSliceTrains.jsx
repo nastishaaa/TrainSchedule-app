@@ -1,11 +1,19 @@
 import s from './HomeSliceTrains.module.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+
 import { selectTrains } from '../../redux/trains/selectors';
+import {getTrains} from '../../redux/trains/operations';
 
 export default function HomeSliceTrains() {
     const trains = useSelector(selectTrains);
+    const dispatch = useDispatch();
 
     const firstFiveTrains = Array.isArray(trains) ? trains.slice(0, 5) : [];
+
+    useEffect(() => {
+        dispatch(getTrains());
+    }, [dispatch]);
 
     return (
         <div className={s.sliceTrainsContainer}>

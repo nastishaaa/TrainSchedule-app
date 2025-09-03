@@ -1,13 +1,7 @@
 import s from './TrainItem.module.css';
+import { formatDuration } from '../../utils/formatDuration';
 
-const formatDuration = (duration) => {
-    if (!duration) return '';
-    const h = duration.hours || 0;
-    const m = duration.minutes || 0;
-    return `${h}h ${m}m`;
-}
-
-export default function TrainItem({item}) {
+export default function TrainItem({ item }) {
     return (
         <div className={s.trainCard}>
             <div className={s.trainHeader}>

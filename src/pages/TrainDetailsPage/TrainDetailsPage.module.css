@@ -1,0 +1,175 @@
+.pageWrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #0f1c2d, #1a2a45);
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+}
+
+.card {
+    background: #1b263b;
+    border-radius: 16px;
+    padding: 40px 30px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.45);
+}
+
+.trainHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #2c3e50;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.trainNumber {
+    font-weight: 700;
+    font-size: 20px;
+    color: #4a90e2;
+}
+
+.trainName {
+    font-weight: 600;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.trainStations {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.station {
+    margin: 0 10px;
+    color: #4dd0e1;
+}
+
+.stationArrow {
+    color: #4a90e2;
+    font-weight: 700;
+}
+
+.trainTimes {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #a0b0c0;
+    margin-bottom: 15px;
+}
+
+.time {
+    font-weight: 600;
+}
+
+.trainDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    color: #c0d6f5;
+}
+
+.detail {
+    font-weight: 500;
+}
+
+.actionSection {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.buyBtn {
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    padding: 15px 35px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buyBtn:hover {
+    background-color: #357ABD;
+    transform: scale(1.05);
+}
+
+.boughtBtn {
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    padding: 15px 35px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .card {
+        padding: 30px 20px;
+    }
+
+    .trainNumber,
+    .trainName {
+        font-size: 16px;
+    }
+
+    .buyBtn,
+    .boughtBtn {
+        padding: 12px 28px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 20px 15px;
+    }
+
+    .trainHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .trainNumber,
+    .trainName {
+        font-size: 14px;
+    }
+
+    .trainTimes {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .buyBtn,
+    .boughtBtn {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+}
+
+.notFound {
+    text-align: center;
+    font-size: 18px;
+    color: #ff6b6b;
+}
