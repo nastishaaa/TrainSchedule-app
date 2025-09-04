@@ -28,23 +28,8 @@ export default function HomeCards() {
                     <p>Create a new account</p>
                 </Link>
                     </>}
-
                 
             </div>
-
-            {/* {user && recentTrains.length > 0 && (
-                <div className={s.recent}>
-                    <h2>Your Recently Viewed Trains</h2>
-                    <ul>
-                        {recentTrains.slice(0, 5).map((train) => (
-                            <li key={train.id}>
-                                <Link to={`/trains/${train.id}`}>{train.name}</Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            )} */}
-
         </div >
     );
 }
