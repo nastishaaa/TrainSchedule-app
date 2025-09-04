@@ -19,7 +19,7 @@ export default function HeaderAuth() {
     return (
         <header className={s.header}>
                     <div className={s.logoContainer}>
-                        <img src='../../assets/TrainSchedule.png' alt="TrainSchedule Logo image" width='24' height='24' />
+                        <img src='../../../public/TrainSchedule.png' alt="TrainSchedule Logo image" width='24' height='24' />
                         <Link to={'/'} className={s.logo}>TrainSchedule</Link>
                     </div>
         
