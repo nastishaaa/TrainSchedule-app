@@ -8,14 +8,19 @@ import { lazy } from 'react';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router';
 import { removeBoughtTicket } from '../../redux/trains/slice';
+import { Train } from '../../types';
+
+interface TrainsListProps {
+  trains: Train[];
+}
 
 const TrainItem = lazy(() => import('../TrainItem/TrainItem'));
 
-export default function TrainsList({ trains }) {
+export default function TrainsList({ trains } : TrainsListProps) {
     const boughtTikets = useSelector(selectBoughtTikets);
     const dispatch = useDispatch();
 
-    const handleDeleteTicket = (id) => {
+    const handleDeleteTicket = (id: number) => {
         try {
             dispatch(removeBoughtTicket(id));
             toast.success('reservation successfully canceled')

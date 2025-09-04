@@ -9,7 +9,7 @@ export default function HeaderAuth() {
     const dispatch = useDispatch<AppDispatch>();
     const navigate = useNavigate();
     const user = useSelector(selectUser); 
-    const firstLetter = user.email ? user.email.charAt(0).toUpperCase() : '';
+    const firstLetter = user?.email ? user.email.charAt(0).toUpperCase() : '';
 
     const handleLogout = () => {
         dispatch(logout());

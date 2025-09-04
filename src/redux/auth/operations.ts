@@ -1,7 +1,12 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { RegisterFormValues } from "../../components/RegisterForm/RegisterForm";
-import { LoginFormValues } from "../../components/LoginForm/LoginForm";
+import type { LoginFormValues } from "../../components/LoginForm/LoginForm";
+
+interface RegisterFormValues {
+  name: string;
+  email: string;
+  password: string;
+}
 
 interface User {
     id: string;

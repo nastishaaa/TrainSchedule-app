@@ -1,21 +1,21 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { login, logout, register } from "./operations";
 import type { User } from "../../types/index";
 
-export interface initialAuthData {
-    user: User
-    isLoggedIn: boolean,
-    token: string | null,
+export interface AuthState {
+    user: User | null;
+    isLoggedIn: boolean;
+    token: string | null;
 }
 
-const initialState = {
+const initialState: AuthState = {
     user: {
         name: '',
-        email: '',
+        email: ''
     },
     isLoggedIn: false,
     token: null,
-}
+};
 
 const authSlice = createSlice({
     name: 'auth',
@@ -23,17 +23,18 @@ const authSlice = createSlice({
     reducers: {},
     extraReducers: builder => {
         builder
-            .addCase(register.fulfilled, (state, action) => {
-                state.user = action.payload.user;
-                state.isLoggedIn = true;
-                state.token = action.payload.token;
-            })
-            .addCase(login.fulfilled, (state, action) => {
-                state.user = action.payload.user;
-                state.token = action.payload.token;
-                state.isLoggedIn = true;
-            })
-            .addCase(logout.fulfilled, () => initialState )
+            builder
+      .addCase(register.fulfilled, (state, action: PayloadAction<{ user: User; token: string }>) => {
+        state.user = action.payload.user;
+        state.isLoggedIn = true;
+        state.token = action.payload.token;
+      })
+      .addCase(login.fulfilled, (state, action: PayloadAction<{ user: User; token: string }>) => {
+        state.user = action.payload.user;
+        state.isLoggedIn = true;
+        state.token = action.payload.token;
+      })
+      .addCase(logout.fulfilled, () => initialState);
     }
 });
 

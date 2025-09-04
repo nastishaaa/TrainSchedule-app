@@ -1,6 +1,6 @@
 import s from './LoginForm.module.css'
 
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import { useId } from "react";
 import * as Yup from 'yup';
 import toast from "react-hot-toast";
@@ -37,7 +37,8 @@ export default function LoginForm() {
     const emailField = useId();
     const passwordField = useId();
 
-    const handleSubmit = async (values, actions) => {
+    const handleSubmit = async (values: LoginFormValues,
+    actions: FormikHelpers<LoginFormValues>) => {
         try {
             dispatch(login(values));
             navigate("/");
