@@ -1,4 +1,5 @@
-import { Form, Field, Formik, FormikHelpers } from 'formik';
+import { Form, Field, Formik, FormikHelpers, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 
 import s from './SupportPage.module.css'
 import toast from 'react-hot-toast';
@@ -14,6 +15,12 @@ const initialValues: SupportFormValues = {
     email: '',
     message: '',
 }
+
+const SupportValidationSchema = Yup.object({
+    name: Yup.string().required('Name is required!'),
+    email: Yup.string().required('Email is required!'),
+    messaga: Yup.string().required('Message is required!'),
+})
 
 export default function SupportPage() {
 
@@ -32,22 +39,26 @@ export default function SupportPage() {
                 </p>
 
                 <Formik initialValues={initialValues}
+                    validationSchema={SupportValidationSchema}
                 onSubmit={handleSubmit}>
                     <Form className={s.form} >
                         <label className={s.label} htmlFor='name' >
                             Your Name
                             <Field type="text" name='name' id='name' placeholder="Enter your name" className={s.input} />
                         </label>
+                        <ErrorMessage name="name" component="span" className={s.errorMess} />
 
                         <label className={s.label} htmlFor='email'>
                             Email
                             <Field type="email" name='email' id='email' placeholder="Enter your email" className={s.input} />
                         </label>
+                        <ErrorMessage name="email" component="span" className={s.errorMess} />
 
                         <label className={s.label} htmlFor='message'>
                             Message
                             <Field as="textarea" placeholder="Describe your issue..." name='message' id='message' className={s.textarea}></Field>
                         </label>
+                        <ErrorMessage name="message" component="span" className={s.errorMess} />
 
                         <button type="submit" className={s.button}>Submit</button>
                     </Form>

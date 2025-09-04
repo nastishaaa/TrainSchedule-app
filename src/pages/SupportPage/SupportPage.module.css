@@ -86,3 +86,9 @@
     background: #90e0ef;
     transform: translateY(-2px);
 }
+
+.errorMess{
+    font-size: 0.8rem;
+    color: #f87171;
+    margin-top: 0.25rem;
+}
