@@ -5,10 +5,11 @@ import { useEffect } from 'react';
 import { selectTrains } from '../../redux/trains/selectors';
 import {getTrains} from '../../redux/trains/operations';
 import { Link } from 'react-router';
+import { AppDispatch } from '../../redux/store';
 
 export default function HomeSliceTrains() {
     const trains = useSelector(selectTrains);
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
 
     const firstFiveTrains = Array.isArray(trains) ? trains.slice(0, 5) : [];
 

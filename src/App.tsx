@@ -3,7 +3,7 @@ import { RouterProvider } from 'react-router-dom'
 import './App.css'
 
 import RootLayout from './layout/RootLayout'
-import { lazy } from 'react'
+import React, { lazy } from 'react'
 import { Toaster } from 'react-hot-toast'
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
@@ -19,13 +19,13 @@ const router = createBrowserRouter([
     path: '/',
     element: <RootLayout />, 
     children: [
-      { index: true, element: <HomePage /> },
-      { path: '/trains', element: <TrainsListPage /> },
-      { path: '/trains/:id', element: <TrainDetailsPage /> },
-      { path: '/login', element: <LoginPage /> },
-      { path: '/register', element: <RegisterPage /> },
-      { path: '/support', element: <SupportPage /> },
-      { path: '/profile', element: <UserProfilePage /> },
+      { index: true, element: <HomePage /> as React.ReactElement },
+      { path: '/trains', element: <TrainsListPage /> as React.ReactElement },
+      { path: '/trains/:id', element: <TrainDetailsPage /> as React.ReactElement },
+      { path: '/login', element: <LoginPage /> as React.ReactElement },
+      { path: '/register', element: <RegisterPage /> as React.ReactElement },
+      { path: '/support', element: <SupportPage /> as React.ReactElement },
+      { path: '/profile', element: <UserProfilePage /> as React.ReactElement },
     ]
   }
 ])

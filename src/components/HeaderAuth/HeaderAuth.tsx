@@ -1,12 +1,12 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import Logo from '../../assets/TrainSchedule.png';
 import s from './HeaderAuth.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../redux/auth/operations';
-import {selectUser} from '../../redux/auth/selectors'
+import { selectUser } from '../../redux/auth/selectors'
+import { AppDispatch } from '../../redux/store';
 
 export default function HeaderAuth() {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const navigate = useNavigate();
     const user = useSelector(selectUser); 
     const firstLetter = user.email ? user.email.charAt(0).toUpperCase() : '';
@@ -19,7 +19,7 @@ export default function HeaderAuth() {
     return (
         <header className={s.header}>
                     <div className={s.logoContainer}>
-                        <img src={Logo} alt="TrainSchedule Logo image" width='24' height='24' />
+                        <img src='/assets/TrainSchedule.png' alt="TrainSchedule Logo image" width='24' height='24' />
                         <Link to={'/'} className={s.logo}>TrainSchedule</Link>
                     </div>
         

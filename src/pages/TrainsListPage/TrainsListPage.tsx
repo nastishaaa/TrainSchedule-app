@@ -8,14 +8,15 @@ import Loader from '../../components/Loader/Loader';
 import TrainItem from '../../components/TrainItem/TrainItem';
 import s from './TrainsListPage.module.css';
 import { setFilters } from '../../redux/trains/slice';
+import type { AppDispatch } from '../../redux/store';
 
 export default function TrainsListPage() {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
 
     const trains = useSelector(selectFilteredTrains);
     const isLoading = useSelector(selectIsLoading);
 
-    const handleChange = (e) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch(setFilters({ [e.target.name]: e.target.value }));
     };
 

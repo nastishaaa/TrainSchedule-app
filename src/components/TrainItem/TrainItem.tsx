@@ -1,7 +1,8 @@
 import s from './TrainItem.module.css';
 import { formatDuration } from '../../utils/formatDuration';
+import { Train } from '../../types';
 
-export default function TrainItem({ item }) {
+export default function TrainItem({ item } : {item: Train}) {
     return (
         <div className={s.trainCard}>
             <div className={s.trainHeader}>

@@ -1,15 +1,23 @@
 import s from './RegisterForm.module.css'
 
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import { useId } from "react";
 import * as Yup from 'yup';
 import toast from "react-hot-toast";
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { AppDispatch } from '../../redux/store';
 
 import { register } from '../../redux/auth/operations';
 
-const initialValues = {
+interface RegisterFormValues {
+    name: string,
+    email: string,
+    password: string,
+}
+
+const initialValues: RegisterFormValues = {
     name: '',
     email: '',
     password: '',
@@ -28,16 +36,18 @@ const FeedbackSchema = Yup.object().shape({
 
 export default function RegisterForm() {
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
+    const navigate = useNavigate();
     
     const nameField = useId();
     const emailField = useId();
     const passwordField = useId();
 
-    const handleSubmit = async (values, actions) => {
+    const handleSubmit = async (values: RegisterFormValues, actions: FormikHelpers<RegisterFormValues>) => {
         try {
             dispatch(register(values));
             toast.success('User Registered!');
+            navigate('/');
         } catch (error) {
             toast.error('Something went wrong...');
             console.log(error);

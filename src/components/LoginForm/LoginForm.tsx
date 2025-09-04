@@ -7,8 +7,14 @@ import toast from "react-hot-toast";
 import { Link, useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/auth/operations';
+import { AppDispatch } from '../../redux/store';
 
-const initialValues = {
+export interface LoginFormValues{
+    email: string,
+    password: string
+}
+
+const initialValues: LoginFormValues = {
     email: '',
     password: '',
 };
@@ -25,7 +31,7 @@ const FeedbackSchema = Yup.object().shape({
 
 export default function LoginForm() {
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const navigate = useNavigate();
 
     const emailField = useId();

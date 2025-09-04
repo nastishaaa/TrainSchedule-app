@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors';
 import { logout } from '../../redux/auth/operations';
 import { selectBoughtTikets } from '../../redux/trains/selectors';
+import type { AppDispatch } from '../../redux/store';
 
 import { Outlet, useNavigate } from 'react-router';
 import { lazy } from 'react';
@@ -16,7 +17,7 @@ export default function UserProfilePage() {
     const user = useSelector(selectUser);
     const boughtTikets = useSelector(selectBoughtTikets);
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const navigate = useNavigate();
 
     const handleLogout = () => {

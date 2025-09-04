@@ -1,8 +1,15 @@
-import { Form, Field, Formik } from 'formik';
+import { Form, Field, Formik, FormikHelpers } from 'formik';
+
 import s from './SupportPage.module.css'
 import toast from 'react-hot-toast';
 
-const initialValues = {
+interface SupportFormValues {
+  name: string;
+  email: string;
+  message: string;
+}
+
+const initialValues: SupportFormValues = {
     name: '',
     email: '',
     message: '',
@@ -10,7 +17,7 @@ const initialValues = {
 
 export default function SupportPage() {
 
-    const handleSubmit = (values, {resetForm}) => {
+    const handleSubmit = (values: SupportFormValues, {resetForm}: FormikHelpers<SupportFormValues>) => {
         console.log(values);
         toast.success('Thank you for your message! Best Regards, TrainSchedule Team!')
         resetForm();

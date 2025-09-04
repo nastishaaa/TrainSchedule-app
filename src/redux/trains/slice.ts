@@ -1,7 +1,22 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { buyTiket, getTrainById, getTrains } from "./operations";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { buyTiket, getTrainById, getTrains } from './operations';
+import { Train } from "../../types";
 
-const initialState = {
+export interface initialData {
+    trains: Train[],
+    boughtTikets: Train[],
+    filters: {
+        departure: string,
+        arrival: string,
+        minSeats: number | null,
+        maxPrice: number | null,
+    },
+    currentTrain: Train | null,
+    isLoading: boolean,
+    isError: boolean,
+}
+
+const initialState: initialData = {
     trains: [],
     boughtTikets: [],
     filters: {
@@ -19,10 +34,7 @@ const trainsSlice = createSlice({
     name: 'trains',
     initialState,
     reducers: {
-        addBoughtTicket: (state, action) => {
-            state.boughtTikets.push(action.payload);
-        },
-        removeBoughtTicket: (state, action) => {
+        removeBoughtTicket: (state, action: PayloadAction<number>) => {
             state.boughtTikets = state.boughtTikets.filter(t => t.id !== action.payload);
         },
         setFilters: (state, action) => {
@@ -67,6 +79,6 @@ const trainsSlice = createSlice({
     }
 });
 
-export const { addBoughtTicket, removeBoughtTicket, setFilters } = trainsSlice.actions;
+export const { removeBoughtTicket, setFilters } = trainsSlice.actions;
 
 export default trainsSlice.reducer;

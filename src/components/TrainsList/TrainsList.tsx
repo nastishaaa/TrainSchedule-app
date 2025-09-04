@@ -1,5 +1,5 @@
 import s from './TrainsList.module.css';
-import Loader from '../Loader/Loader';
+import Loader from '../../components/Loader/Loader';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { selectBoughtTikets } from '../../redux/trains/selectors';

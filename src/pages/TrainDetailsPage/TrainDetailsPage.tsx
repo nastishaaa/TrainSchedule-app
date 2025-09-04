@@ -2,6 +2,7 @@ import { selectCurrentTrain, selectBoughtTikets } from '../../redux/trains/selec
 import { formatDuration } from '../../utils/formatDuration';
 import { buyTiket, getTrainById } from '../../redux/trains/operations';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
+import { AppDispatch } from '../../redux/store';
 
 import s from './TrainDetailsPage.module.css';
 
@@ -12,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export default function TrainDetailsPage() {
     const { id } = useParams();
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
 
     const train = useSelector(selectCurrentTrain);
     const bought = useSelector(selectBoughtTikets);
@@ -29,13 +30,13 @@ export default function TrainDetailsPage() {
 
     useEffect(() => {
         if (id) {
-            dispatch(getTrainById(id));
+            dispatch(getTrainById(+id));
         }
     }, [dispatch, id]);
 
     if (!train) return <p className={s.notFound}>Train not found</p>;
 
-    const handleBuyTicket = (id) => {
+    const handleBuyTicket = (id: number) => {
         try {
             setTicketBought(true);
             dispatch(buyTiket(id));
@@ -43,7 +44,7 @@ export default function TrainDetailsPage() {
         } catch {
             toast.error('Please, Authorize first!')
         }
-       };
+    }
 
     return (
         <div className={s.pageWrapper}>
